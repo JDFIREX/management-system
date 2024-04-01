@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  management-system-psql:
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: management-system-password
+      POSTGRES_USER: management-system-user
+      POSTGRES_DB: management-system
