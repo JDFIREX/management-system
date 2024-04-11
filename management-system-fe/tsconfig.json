@@ -3,6 +3,13 @@
   "exclude": ["node_modules"],
   "compilerOptions": {
     "lib": ["dom", "dom.iterable", "esnext"],
+    "paths": {
+      "@/*": ["src/*"],
+      "@utils/*": ["src/domain/utils/*"],
+      "@modules/*": ["src/modules/*"],
+      "@domain/*": ["src/domain/*"],
+      "@ui/atoms/*": ["src/ui/components/atoms/*"],
+    },
     "isolatedModules": true,
     "esModuleInterop": true,
     "jsx": "preserve",

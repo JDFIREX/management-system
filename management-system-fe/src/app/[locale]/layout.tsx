@@ -3,6 +3,8 @@ import type { Metadata } from "next"
 
 import { Theme } from "@radix-ui/themes"
 
+import Sidebar from "./sidebar"
+
 import "./globals.css"
 import "@radix-ui/themes/styles.css"
 
@@ -23,7 +25,9 @@ const LocaleLayout: FC<Props> = (props) => {
   return (
     <html lang={locale}>
       <body>
-        <Theme>{children}</Theme>
+        <Theme>
+          <Sidebar>{children}</Sidebar>
+        </Theme>
       </body>
     </html>
   )
