@@ -1,5 +1,5 @@
 version: '3.8'
-
+name: management-system
 services:
   management-system-psql:
     image: postgres
@@ -10,3 +10,12 @@ services:
       POSTGRES_PASSWORD: management-system-password
       POSTGRES_USER: management-system-user
       POSTGRES_DB: management-system
+  management-system-keycloak:
+    image: quay.io/keycloak/keycloak:22.0.1
+    restart: always
+    environment:
+      KEYCLOAK_ADMIN: management-system-user
+      KEYCLOAK_ADMIN_PASSWORD: management-system-password
+    ports:
+      - "8088:8080"
+    command: start --proxy edge --hostname-strict=false

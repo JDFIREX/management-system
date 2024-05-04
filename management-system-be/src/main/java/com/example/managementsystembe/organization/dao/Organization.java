@@ -19,14 +19,14 @@ import lombok.Setter;
 @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Table(name = "organization")
-class Organization {
+public class Organization {
 
     @Id
     @EqualsAndHashCode.Include
-    @Column(name = "id", nullable = false)
+    @Column(name = "id", nullable = false, unique = true)
     private String id = UUID.randomUUID().toString();
 
-    @Column(name = "name", nullable = false)
+    @Column(name = "name", nullable = false, unique = true)
     private String name;
 
 }

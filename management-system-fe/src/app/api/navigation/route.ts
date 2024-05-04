@@ -1,7 +1,6 @@
 import { Navigation } from "@domain/types/navigation"
 
-export async function GET(): Promise<Response> {
-  console.log("elooo")
+export async function GET() {
   const data: Navigation[] = [
     {
       id: "1",
@@ -22,8 +21,5 @@ export async function GET(): Promise<Response> {
       icon: null
     }
   ]
-
-  return Response.json({
-    data
-  })
+  return Response.json(data)
 }
