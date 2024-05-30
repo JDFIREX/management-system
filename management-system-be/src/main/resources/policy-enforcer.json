@@ -1,0 +1,15 @@
+{
+  "realm": "management-system",
+  "auth-server-url": "http://localhost:8088/",
+  "ssl-required": "external",
+  "resource": "management-system-be",
+  "verify-token-audience": true,
+  "credentials": {
+    "secret": "ynrCe2NWmfUNw4DL9b29zXoio6n8kguj"
+  },
+  "use-resource-role-mappings": true,
+  "confidential-port": 0,
+  "policy-enforcer": {
+    "credentials": {}
+  }
+}
