@@ -1,16 +1,3 @@
-import NextAuth from "next-auth"
-import KeycloakProvider from "next-auth/providers/keycloak";
+import { handlers } from "@/app/api/auth"
 
-const authOptions = {
-  secret: process.env.NEXTAUTH_SECRET,
-  providers: [
-    KeycloakProvider({
-      clientId: process.env.KEYCLOAK_ID as string,
-      clientSecret: process.env.KEYCLOAK_SECRET as string,
-      issuer: process.env.KEYCLOAK_ISSUER,
-    })
-  ]
-}
-
-const handler = NextAuth(authOptions)
-export { handler as GET, handler as POST }
+export { handlers as GET, handlers as POST }

@@ -1,4 +1,4 @@
-import { Navigation } from "@domain/types/navigation"
+import { Navigation } from "@/app/api/navigation/index"
 
 export async function GET() {
   const data: Navigation[] = [

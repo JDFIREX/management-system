@@ -1,10 +1,8 @@
+import { getOrganizations } from "@/app/api/organizations/route"
 
-
-const getOrganizations = async () => {
-  const response = await fetch('http://localhost:8080/organizations')
-  return response.json()
+const OrganizationsPage = async () => {
+  const organizations = await getOrganizations()
+  return <div>Organizations Page</div>
 }
-
-const OrganizationsPage = () => <div>Organizations Page</div>
 
 export default OrganizationsPage

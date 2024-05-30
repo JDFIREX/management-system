@@ -1,4 +1,4 @@
-import { User } from "@domain/types/user"
+import { User } from "@/app/api/user/index"
 
 export async function GET() {
   const user: User = {

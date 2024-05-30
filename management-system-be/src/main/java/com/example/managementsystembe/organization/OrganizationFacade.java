@@ -18,6 +18,8 @@ class OrganizationFacade {
     final OrganizationMapper organizationMapper;
     final SecurityFacade securityFacade;
     public Page<OrganizationDto> findAll(Pageable pageable) {
+        var user = securityFacade.getCurrentUserPrincipal();
+        log.info("user: {}", user);
         log.info("Organization Facade: findAll");
         return organizationRepository.findAll(pageable)
                 .map(organizationMapper::toDto);

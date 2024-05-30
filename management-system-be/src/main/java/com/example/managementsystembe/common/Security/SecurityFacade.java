@@ -8,8 +8,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 public class SecurityFacade {
 
     public AccessTokenProperties getCurrentUserPrincipal() {
-        JwtAuthentication principal = (JwtAuthentication) SecurityContextHolder.getContext().getAuthentication();
-        return principal.getPrincipal();
+        var principal = SecurityContextHolder.getContext().getAuthentication();
+        return (AccessTokenProperties) principal.getPrincipal();
     }
 
     public boolean isAdmin() {

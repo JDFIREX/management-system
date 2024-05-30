@@ -1,4 +1,4 @@
-import { Navigation } from "@domain/types/navigation"
+import { Navigation } from "@/app/api/navigation"
 import { Box } from "@radix-ui/themes"
 import {
   NavigationMenu,
@@ -8,24 +8,18 @@ import {
 } from "@ui/atoms/Navigation"
 
 const getData = async (): Promise<Navigation[]> => {
-  const res = await fetch("http://localhost:3000/pl/api/navigation", {
+  const res = await fetch("http://localhost:3000/api/navigation", {
     method: "GET",
     headers: {
       "Content-Type": "application/json"
     }
   })
-  console.log(res)
-  const x = await res.json()
-  console.log(x)
-  if (!res.ok) {
-    throw new Error("Failed to fetch data")
-  }
 
-  return x
+  return res.json()
 }
 
 const NavigationSidebar = async () => {
-  const navigation = getData()
+  const navigation = await getData()
 
   return (
     <Box>

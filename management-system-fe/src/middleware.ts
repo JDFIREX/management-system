@@ -1,12 +1,16 @@
+import { NextRequest } from "next/server"
+import { withAuth } from "next-auth/middleware"
 import createMiddleware from "next-intl/middleware"
 
 export const runtime = "nodejs"
 
-export default createMiddleware({
-  // A list of all locales that are supported
-  locales: ["pl", "en"],
-  // If this locale is matched, pathnames work without a prefix (e.g. `/about`)
-  defaultLocale: "pl"
+export default withAuth((request: NextRequest) => {
+  const handleI18nRouting = createMiddleware({
+    locales: ["pl", "en"],
+    defaultLocale: "pl"
+  })
+
+  return handleI18nRouting(request)
 })
 
 export const config = {
